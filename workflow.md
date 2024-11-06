@@ -10,17 +10,21 @@
 |    |
 |    |--> Evaluate Query Content and Type
 |         |
-|         |-- **If query is about Japan or sports** --> Direct to **RAG Node**
+|         |-- **If query is about India or cricket** --> Direct to **RAG Node**
 |         |
-|         |-- **If query involves data/code** --> Direct to **Coder Node**
+|         |-- **If query involves coding or data analysis** --> Direct to **Coder Node**
 |         |
-|         |-- **If query involves research** --> Direct to **Researcher Node**
+|         |-- **If query requires general research** --> Direct to **Researcher Node**
+|         |
+|         |-- **If query involves data analysis** --> Direct to **DataAnalyst Node**
+|         |
+|         |-- **If query requires translation** --> Direct to **Translator Node**
 |    |
 |    |--> **Output**: Agent Selection Decision
 |
 |--> **Agent Nodes**
 |    |
-|    |--> **RAG Node** (for Japan and Sports Queries)
+|    |--> **RAG Node** (for India and Cricket Queries)
 |    |    |
 |    |    |--> Retrieve relevant information using Retrieval-Augmented Generation (RAG)
 |    |    |--> Process with Chroma vector database and embeddings
@@ -29,14 +33,25 @@
 |    |
 |    |--> **Coder Node** (for Code/Data Queries)
 |    |    |
-|    |    |--> Execute Python code or data analysis using PythonREPLTool
-|    |    |--> Generate safe code to meet user request
+|    |    |--> Execute Python code or perform data analysis using PythonREPLTool
+|    |    |--> Generate code or data visualizations as needed
 |    |    |--> Return Result to Supervisor
 |    |
 |    |--> **Researcher Node** (for General Research Queries)
+|    |    |
+|    |    |--> Conduct web-based search using Tavily Search tool
+|    |    |--> Return search results to Supervisor
+|    |
+|    |--> **DataAnalyst Node** (for Data-Specific Queries)
+|    |    |
+|    |    |--> Conduct data analysis using PandasDataTool
+|    |    |--> Retrieve structured data insights
+|    |    |--> Return analyzed data results to Supervisor
+|    |
+|    |--> **Translator Node** (for Translation Queries)
 |         |
-|         |--> Conduct web-based search using Tavily Search tool
-|         |--> Return search results to Supervisor
+|         |--> Translate text into the target language using GoogleTranslateTool
+|         |--> Return translation results to Supervisor
 |
 |--> **Supervisor - Completion Check**
 |    |
@@ -54,4 +69,3 @@
 |    |--> Provide Final Answer to User
 |
 |--> **End: Multi-Agent Query Processing System Completed**
-
