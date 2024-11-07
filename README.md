@@ -1,7 +1,3 @@
-Certainly! Here’s a refined README with a more sophisticated title and language, avoiding the term "AI-powered."
-
----
-
 # **Multi-Agent Workflow System with Supervisor Node**
 
 The **Multi-Agent Workflow System with Supervisor Node** is a modular, task-oriented framework designed to handle complex workflows by dynamically routing tasks to specialized agents. Each agent, such as the RAG (Retrieval-Augmented Generation) agent, code generator, data analyst, and translator, is equipped with specific tools and capabilities to efficiently manage designated tasks. A central supervisor node orchestrates agent interactions, ensuring that each query is accurately processed through the appropriate agents until completion. The project includes both a command-line interface (CLI) and a Streamlit web app for user interaction.
